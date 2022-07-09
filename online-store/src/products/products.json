@@ -1,0 +1,254 @@
+[
+        {
+            "name":  "PocketBook 628",
+            "image": "products/img/1.jpg",
+            "count": 10,
+            "year": 2020,
+            "color": "red",
+            "manufacturer": "PocketBook",
+            "diagonal": 6,
+            "popular": true
+
+        },
+        {
+            "name":  "PocketBook Touch Lux 3",
+            "image": "products/img/2.jpg",
+            "count": 10,
+            "year": 2015,
+            "color": "red",
+            "manufacturer": "PocketBook",
+            "diagonal": 6,
+            "popular": true
+        },
+        {
+            "name":  "PocketBook 626 Plus",
+            "image": "products/img/3.jpg",
+            "count": 10,
+            "year": 2016,
+            "color": "red",
+            "manufacturer": "PocketBook",
+            "diagonal": 6,
+            "popular": true
+
+        },
+        {
+            "name":  "Amazon Kindle Paperwhite 2018",
+            "image": "products/img/4.jpg",
+            "count": 10,
+            "year": 2018,
+            "color": "green",
+            "manufacturer": "Amazon",
+            "diagonal": 6,
+            "popular": true
+        },
+        {
+            "name":  "Amazon Kindle Paperwhite Kids",
+            "image": "products/img/5.jpg",
+            "count": 10,
+            "year": 2021,
+            "color": "green",
+            "manufacturer": "Amazon",
+            "diagonal": 6.8,
+            "popular": true
+        },
+        {
+            "name":  "Onyx BOOX Note Air 2 Plus",
+            "image": "products/img/6.jpg",
+            "count": 10,
+            "year": 2022,
+            "color": "green",
+            "manufacturer": "Onyx",
+            "diagonal": 10.3,
+            "popular": true
+        },
+        {
+            "name":  "PocketBook Touch Lux 4",
+            "image": "products/img/7.jpg",
+            "count": 10,
+            "year": 2018,
+            "color": "green",
+            "manufacturer": "PocketBook",
+            "diagonal": 6,
+            "popular": true
+        },
+        {
+            "name":  "PocketBook 641 Aqua 2",
+            "image": "products/img/8.jpg",
+            "count": 10,
+            "year": 2017,
+            "color": "green",
+            "manufacturer": "PocketBook",
+            "diagonal": 6,
+            "popular": true
+        },
+        {
+            "name":  "Amazon Kindle 2019",
+            "image": "products/img/9.jpg",
+            "count": 10,
+            "year": 2019,
+            "color": "white",
+            "manufacturer": "Amazon",
+            "diagonal": 6,
+            "popular": true
+        },
+        {
+            "name":  "PocketBook 617",
+            "image": "products/img/10.jpg",
+            "count": 10,
+            "year": 2022,
+            "color": "white",
+            "manufacturer": "PocketBook",
+            "diagonal": 6,
+            "popular": true
+        },
+        {
+            "name":  "PocketBook 606",
+            "image": "products/img/11.jpg",
+            "count": 10,
+            "year": 2020,
+            "color": "white",
+            "manufacturer": "PocketBook",
+            "diagonal": 6,
+            "popular": true
+        },
+        {
+            "name":  "PocketBook Basic 3",
+            "image": "products/img/12.jpg",
+            "count": 10,
+            "year": 2017,
+            "color": "white",
+            "manufacturer": "PocketBook",
+            "diagonal": 6,
+            "popular": true
+        },
+        {
+            "name":  "Onyx BOOX Darwin 6",
+            "image": "products/img/13.jpg",
+            "count": 10,
+            "year": 2018,
+            "color": "white",
+            "manufacturer": "Onyx",
+            "diagonal": 6,
+            "popular": true
+        },
+        {
+            "name":  "Onyx BOOX Max 3",
+            "image": "products/img/14.jpg",
+            "count": 10,
+            "year": 2019,
+            "color": "white",
+            "manufacturer": "Onyx",
+            "diagonal": 13.3,
+            "popular": true
+        },
+        {
+            "name":  "Onyx BOOX Darwin 7",
+            "image": "products/img/15.jpg",
+            "count": 10,
+            "year": 2020,
+            "color": "white",
+            "manufacturer": "Onyx",
+            "diagonal": 6,
+            "popular": true
+        },
+        {
+            "name":  "Amazon Kindle Paperwhite 2021",
+            "image": "products/img/16.jpg",
+            "count": 10,
+            "year": 2021,
+            "color": "black",
+            "manufacturer": "Amazon",
+            "diagonal": 6.8,
+            "popular": true
+        },
+        {
+            "name":  "Onyx BOOX Volta 3",
+            "image": "products/img/17.jpg",
+            "count": 10,
+            "year": 2021,
+            "color": "black",
+            "manufacturer": "Onyx",
+            "diagonal": 6,
+            "popular": true
+        },
+        {
+            "name":  "Onyx BOOX Kon-Tiki 2",
+            "image": "products/img/18.jpg",
+            "count": 10,
+            "year": 2021,
+            "color": "black",
+            "manufacturer": "Onyx",
+            "diagonal": 7.8,
+            "popular": true
+        },
+        {
+            "name":  "Onyx BOOX Faust 3",
+            "image": "products/img/19.jpg",
+            "count": 10,
+            "year": 2021,
+            "color": "black",
+            "manufacturer": "Onyx",
+            "diagonal": 6,
+            "popular": true
+        },
+        {
+            "name":  "PocketBook 740",
+            "image": "products/img/20.jpg",
+            "count": 10,
+            "year": 2018,
+            "color": "black",
+            "manufacturer": "PocketBook",
+            "diagonal": 7.8,
+            "popular": true
+        },
+        {
+            "name":  "Onyx BOOX Cleopatra 3",
+            "image": "products/img/21.jpg",
+            "count": 10,
+            "year": 2017,
+            "color": "black",
+            "manufacturer": "Onyx",
+            "diagonal": 6.8,
+            "popular": true
+        },
+        {
+            "name":  "Onyx BOOX Note 2",
+            "image": "products/img/22.jpg",
+            "count": 10,
+            "year": 2019,
+            "color": "black",
+            "manufacturer": "Onyx",
+            "diagonal": 10.3,
+            "popular": true
+        },
+        {
+            "name":  "Onyx BOOX Nova Air C",
+            "image": "products/img/23.jpg",
+            "count": 10,
+            "year": 2022,
+            "color": "black",
+            "manufacturer": "Onyx",
+            "diagonal": 7.8,
+            "popular": true
+        },
+        {
+            "name":  "Onyx BOOX Nova Pro",
+            "image": "products/img/24.jpg",
+            "count": 10,
+            "year": 2019,
+            "color": "black",
+            "manufacturer": "Onyx",
+            "diagonal": 7.8,
+            "popular": true
+        },
+        {
+            "name":  "Amazon Kindle Paperwhite 2018",
+            "image": "products/img/25.jpg",
+            "count": 10,
+            "year": 2018,
+            "color": "black",
+            "manufacturer": "Amazon",
+            "diagonal": 6,
+            "popular": true
+        }
+    ]
