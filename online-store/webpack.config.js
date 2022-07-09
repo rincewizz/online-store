@@ -49,16 +49,23 @@ const baseConfig = module.exports = {
                 }
               }
             ]
-          }
+          },
+          {
+            test: /\.json/,
+            type: 'asset/source',
+            generator: {
+              filename: 'products/[name][ext]',
+            },
+          },
       ],
     },
     plugins: [
       new HtmlWebpackPlugin({
         template: path.resolve(__dirname, './src/index.html'),
         filename: 'index.html',
-    }),
+      }),
       new MiniCssExtractPlugin(),
-      new CopyWebpackPlugin({ patterns: [{ from: './assets/img', to: 'assets/img' }] }), 
+      new CopyWebpackPlugin({ patterns: [{ from: './assets/img', to: 'assets/img' }, { from: './products/img', to: 'products/img' }] }), 
       new ESLintPlugin({
         extensions: ['.ts', '.js'],
         exclude: 'node_modules'
