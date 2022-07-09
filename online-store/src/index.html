@@ -6,7 +6,242 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    
+<body class="body">
+    <header class="header">
+        <div class="container header__container">
+            <div class="header__logo logo">Online store</div>
+            <div class="header__search"><input class="header__input-search search" type="search" name="" id=""></div>
+            <div class="header__cart">
+                <div class="header__cart-element cart">
+                    <div class="cart__icon">
+                        <span class="cart__count"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <h1 class="main__title">Электронные книги</h1>
+        </div>
+
+        <div class="container main__container">            
+            <div class="main__sidebar filters">
+                <h3>Фильтры по значению</h3>
+                <div class="filters__item filter filter--manufacturer">
+                    Производитель:
+                    <div class="filter__wrap">
+                        <label class="filter__label">
+                            <input class="filter__checkbox" type="checkbox" name="manufacturer" value="Amazon" id="amazon">
+                            <img class="filter__img" src="./assets/img/logos/amazon.jpg" alt="Amazon" title="Amazon">
+                        </label>
+                        <label class="filter__label">
+                            <input class="filter__checkbox" type="checkbox" name="manufacturer" value="PocketBook" id="">
+                            <img class="filter__img" src="./assets/img/logos/pocketbook.jpg" alt="PocketBook" title="PocketBook">
+                        </label>
+                        <label class="filter__label">
+                            <input class="filter__checkbox" type="checkbox" name="manufacturer" value="Onyx" id="">
+                            <img class="filter__img" src="./assets/img/logos/onyx.jpg" alt="Onyx" title="Onyx">
+                        </label>
+                    </div>                   
+                    
+                </div>
+                <div class="filters__item filter filter--diagonal">
+                    Диагональ:
+                    <div class="filter__wrap">
+                        <label class="filter__label">
+                            <input class="filter__checkbox" type="checkbox" name="diagonal" value="6" id="">
+                            <div class="filter__btn">6"</div>
+                        </label>
+                        <label class="filter__label">
+                            <input class="filter__checkbox" type="checkbox" name="diagonal" value="6.8" id="">
+                            <div class="filter__btn">6.8"</div>
+                        </label>
+                        <label class="filter__label">
+                            <input class="filter__checkbox" type="checkbox" name="diagonal" value="7.8" id="">
+                            <div class="filter__btn">7.8"</div>
+                        </label>
+                        <label class="filter__label">
+                            <input class="filter__checkbox" type="checkbox" name="diagonal" value="10.3" id="">
+                            <div class="filter__btn">10.3"</div>
+                        </label>
+                        <label class="filter__label">
+                            <input class="filter__checkbox" type="checkbox" name="diagonal" value="13.3" id="">
+                            <div class="filter__btn">13.3"</div>
+                        </label>
+                    </div>
+                </div>
+                <div class="filters__item filter filter--color">
+                    Цвет:
+                    <div class="filter__wrap">
+                        <label class="filter__label">
+                            <input class="filter__checkbox" type="checkbox" name="color" value="black" id="">
+                            <div class="filter__btn filter__btn--black"></div>
+                        </label>
+                        <label class="filter__label">
+                            <input class="filter__checkbox" type="checkbox" name="color" value="white" id="">
+                            <div class="filter__btn filter__btn--white"></div>
+                        </label>
+                        <label class="filter__label">
+                            <input class="filter__checkbox" type="checkbox" name="color" value="green" id="">
+                            <div class="filter__btn filter__btn--green"></div>
+                        </label>
+                        <label class="filter__label">
+                            <input class="filter__checkbox" type="checkbox" name="color" value="red" id="">
+                            <div class="filter__btn filter__btn--red"></div>
+                        </label>
+                    </div>
+                </div>
+                <div class="filters__item filter filter--popular">
+                    <label>Популярные <input type="checkbox"></label>
+                </div>
+
+                <h3>Фильтры по диапазону</h3>
+                <div class="filters__item filter filter--stock">
+                    <h4>Количество на складе:</h4>
+                    <input class="filter__input" type="number" name="" id="stock-from">
+                    <input class="filter__input" type="number" name="" id="stock-to">
+                    <div class="filter__range stock-range"></div>
+                </div>
+                <div class="filters__item filter filter--year">
+                    <h4>Год выхода на рынок:</h4>
+                    <input class="filter__input" type="number" name="" id="year-from">
+                    <input class="filter__input" type="number" name="" id="year-to">
+                    <div class="filter__range year-range"></div>
+                </div>
+            </div>
+            <div class="main__content">
+                <div class="sorts">
+                    <label for=""> Сортировать: 
+                        <select class="sort" name="" id="">
+                            <option value="">По названию, по возрастанию</option>
+                            <option value="">По названию, по убыванию</option>
+                            <option value="">По году, по возрастанию</option>
+                            <option value="">По году, по убыванию</option>
+                            <option value="">По количеству, по возрастанию</option>
+                            <option value="">По количеству, по убыванию</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="products">
+
+                    <div class="products__item card">
+                        <img class="card__img" src="./products/img/1.jpg" alt="">
+                        <h2 class="card__title">Amazon Kindle Paperwhite 2018</h2>
+                        <div class="card__info">
+                            <div class="card__count">Количество на складе: 10</div>
+                            <div class="card__manufacturer">Производитель: Amazon</div>
+                            <div class="card__year">Год выпуска 2021</div>
+                            <div class="card__color">красный</div>
+                            <div class="card__side">Размер диагонали: 6"</div>
+                        </div>
+                        <div class="card__popular"></div>
+                        <button class="card__add-to-cart">Добавить в корзину</button>
+                    </div>
+                    <div class="products__item card">
+                        <img class="card__img" src="./products/img/1.jpg" alt="">
+                        <h2 class="card__title">Amazon Kindle Paperwhite 2018</h2>
+                        <div class="card__info">
+                            <div class="card__count">Количество на складе: 10</div>
+                            <div class="card__manufacturer">Производитель: Amazon</div>
+                            <div class="card__year">Год выпуска 2021</div>
+                            <div class="card__color">красный</div>
+                            <div class="card__side">Размер диагонали: 6"</div>
+                        </div>
+                        <div class="card__popular"></div>
+                        <button class="card__add-to-cart">Добавить в корзину</button>
+                    </div>
+                    <div class="products__item card">
+                        <img class="card__img" src="./products/img/1.jpg" alt="">
+                        <h2 class="card__title">Amazon Kindle Paperwhite 2018</h2>
+                        <div class="card__info">
+                            <div class="card__count">Количество на складе: 10</div>
+                            <div class="card__manufacturer">Производитель: Amazon</div>
+                            <div class="card__year">Год выпуска 2021</div>
+                            <div class="card__color">красный</div>
+                            <div class="card__side">Размер диагонали: 6"</div>
+                        </div>
+                        <div class="card__popular"></div>
+                        <button class="card__add-to-cart">Добавить в корзину</button>
+                    </div>
+                    <div class="products__item card">
+                        <img class="card__img" src="./products/img/1.jpg" alt="">
+                        <h2 class="card__title">Amazon Kindle Paperwhite 2018</h2>
+                        <div class="card__info">
+                            <div class="card__count">Количество на складе: 10</div>
+                            <div class="card__manufacturer">Производитель: Amazon</div>
+                            <div class="card__year">Год выпуска 2021</div>
+                            <div class="card__color">красный</div>
+                            <div class="card__side">Размер диагонали: 6"</div>
+                        </div>
+                        <div class="card__popular"></div>
+                        <button class="card__add-to-cart">Добавить в корзину</button>
+                    </div>
+                    <div class="products__item card">
+                        <img class="card__img" src="./products/img/1.jpg" alt="">
+                        <h2 class="card__title">Amazon Kindle Paperwhite 2018</h2>
+                        <div class="card__info">
+                            <div class="card__count">Количество на складе: 10</div>
+                            <div class="card__manufacturer">Производитель: Amazon</div>
+                            <div class="card__year">Год выпуска 2021</div>
+                            <div class="card__color">красный</div>
+                            <div class="card__side">Размер диагонали: 6"</div>
+                        </div>
+                        <div class="card__popular"></div>
+                        <button class="card__add-to-cart">Добавить в корзину</button>
+                    </div>
+                    <div class="products__item card">
+                        <img class="card__img" src="./products/img/1.jpg" alt="">
+                        <h2 class="card__title">Amazon Kindle Paperwhite 2018</h2>
+                        <div class="card__info">
+                            <div class="card__count">Количество на складе: 10</div>
+                            <div class="card__manufacturer">Производитель: Amazon</div>
+                            <div class="card__year">Год выпуска 2021</div>
+                            <div class="card__color">красный</div>
+                            <div class="card__side">Размер диагонали: 6"</div>
+                        </div>
+                        <div class="card__popular"></div>
+                        <button class="card__add-to-cart">Добавить в корзину</button>
+                    </div>
+                    <div class="products__item card">
+                        <img class="card__img" src="./products/img/1.jpg" alt="">
+                        <h2 class="card__title">Amazon Kindle Paperwhite 2018</h2>
+                        <div class="card__info">
+                            <div class="card__count">Количество на складе: 10</div>
+                            <div class="card__manufacturer">Производитель: Amazon</div>
+                            <div class="card__year">Год выпуска 2021</div>
+                            <div class="card__color">красный</div>
+                            <div class="card__side">Размер диагонали: 6"</div>
+                        </div>
+                        <div class="card__popular"></div>
+                        <button class="card__add-to-cart">Добавить в корзину</button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+    <footer class="footer">
+        rss logo github 
+    </footer>
+
+    <template id="productTemp">
+        <div class="products__item card">
+            <img class="card__img" src="#" alt="">
+            <h2 class="card__title"></h2>
+            <div class="card__info">
+                <div class="card__count"><b>Количество на складе:</b> <span class="card__count-value"></span></div>
+                <div class="card__manufacturer"><b>Производитель:</b> <span class="card__manufacturer-value"></span></div>
+                <div class="card__year"><b>Год выпуска:</b> <span class="card__year-value"></span></div>
+                <div class="card__color"><b>Цвет:</b> <span class="card__color-value">красный</span></div>
+                <div class="card__diagonal"><b>Размер диагонали:</b> <span class="card__diagonal-value"></span></div>
+            </div>
+            <div class="card__popular"></div>
+            <button class="card__add-to-cart">Добавить в корзину</button>
+        </div>
+    </template>
 </body>
 </html>
