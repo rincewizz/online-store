@@ -7,13 +7,13 @@
             "color": "red",
             "manufacturer": "PocketBook",
             "diagonal": 6,
-            "popular": true
+            "popular": false
 
         },
         {
             "name":  "PocketBook Touch Lux 3",
             "image": "products/img/2.jpg",
-            "count": 10,
+            "count": 20,
             "year": 2015,
             "color": "red",
             "manufacturer": "PocketBook",
@@ -23,18 +23,18 @@
         {
             "name":  "PocketBook 626 Plus",
             "image": "products/img/3.jpg",
-            "count": 10,
+            "count": 30,
             "year": 2016,
             "color": "red",
             "manufacturer": "PocketBook",
             "diagonal": 6,
-            "popular": true
+            "popular": false
 
         },
         {
             "name":  "Amazon Kindle Paperwhite 2018",
             "image": "products/img/4.jpg",
-            "count": 10,
+            "count": 60,
             "year": 2018,
             "color": "green",
             "manufacturer": "Amazon",
