@@ -83,6 +83,22 @@ class AppPresenter {
         }
       });
     }
+
+    const sortEl: HTMLSelectElement | null = document.querySelector(".sort");
+    if (sortEl) {
+      sortEl.addEventListener("change", (e) => {
+        const target: HTMLSelectElement = e.target as HTMLSelectElement;
+        this.model.sortOptions.sortBy = target.value.split("_")[0] as
+          | "name"
+          | "year"
+          | "count";
+        this.model.sortOptions.order = target.value.split("_")[1] as
+          | "asc"
+          | "desc";
+
+        this.view.renderProducts(this.model.getProducts());
+      });
+    }
   }
   doManufacturerFilter(e: Event) {
     const target: HTMLInputElement = e.target as HTMLInputElement;

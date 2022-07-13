@@ -22,12 +22,12 @@ class AppView {
 
     if (stockRange) {
       noUiSlider.create(stockRange, {
-        start: [0, 100],
+        start: [0, 50],
         step: 1,
         connect: true,
         range: {
           min: 0,
-          max: 100,
+          max: 50,
         },
       });
 
@@ -51,11 +51,11 @@ class AppView {
 
     if (yearRange) {
       noUiSlider.create(yearRange, {
-        start: [2016, 2022],
+        start: [2015, 2022],
         step: 1,
         connect: true,
         range: {
-          min: 2016,
+          min: 2015,
           max: 2022,
         },
       });
@@ -131,8 +131,11 @@ class AppView {
         productClone.productObj = product;
       }
 
+      product.element.style.order = index.toString();
+
       if (product.isShow) {
         tmpNode = product.element;
+
         continue;
       }
       if (index === 0) {
