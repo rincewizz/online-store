@@ -78,6 +78,16 @@ class AppView {
 
     if (!productTemp) throw new Error("error");
 
+    if (products.length === 0) {
+      if (!document.querySelector(".products__noitem"))
+        this.productsEl?.insertAdjacentHTML(
+          "beforeend",
+          `<div class="products__noitem">Извините, совпадений не обнаружено</div>`
+        );
+    } else {
+      document.querySelector(".products__noitem")?.remove();
+    }
+
     let tmpNode: HTMLElement | null = null;
     for (const [index, product] of products.entries()) {
       if (!product.element) {

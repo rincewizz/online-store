@@ -99,6 +99,14 @@ class AppPresenter {
         this.view.renderProducts(this.model.getProducts());
       });
     }
+
+    const searchEl: HTMLInputElement | null = document.querySelector(".search");
+    if (searchEl) {
+      searchEl.addEventListener("input", () => {
+        this.model.searchQuery = searchEl.value;
+        this.view.renderProducts(this.model.getProducts());
+      });
+    }
   }
   doManufacturerFilter(e: Event) {
     const target: HTMLInputElement = e.target as HTMLInputElement;

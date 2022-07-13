@@ -18,6 +18,7 @@ class AppModel {
     sortBy: "name" | "year" | "count";
     order: "asc" | "desc";
   };
+  public searchQuery: string;
 
   constructor() {
     this.products = [];
@@ -31,6 +32,7 @@ class AppModel {
       year: new RangeFilter("year"),
     };
     this.sortOptions = { sortBy: "name", order: "asc" };
+    this.searchQuery = "";
 
     const response: Array<ResponseProduct> = JSON.parse(
       productsJson as unknown as string
@@ -57,6 +59,8 @@ class AppModel {
 
     filteredProducts = this.filtersArr["stock"].filter(filteredProducts);
     filteredProducts = this.filtersArr["year"].filter(filteredProducts);
+
+    filteredProducts = this.search(filteredProducts, this.searchQuery);
 
     return filteredProducts;
   }
@@ -90,6 +94,22 @@ class AppModel {
         break;
     }
     // products.forEach((el) => el.element?.remove());
+    return products;
+  }
+
+  search(products: products, query: string): products {
+    if (query) {
+      const regexp = new RegExp(query, "i");
+      return products.filter((el) => {
+        if (el.name.search(regexp) !== -1) {
+          return true;
+        } else {
+          el.isShow = false;
+          el.element?.remove();
+          return false;
+        }
+      });
+    }
     return products;
   }
 }
