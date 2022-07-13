@@ -11,8 +11,6 @@ class App {
     this.Model = new AppModel();
     this.View = new AppView();
     this.Presenter = new AppPresenter(this.Model, this.View);
-
-    this.start();
   }
 
   start() {
