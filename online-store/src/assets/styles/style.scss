@@ -132,6 +132,11 @@ html {
     &__item {
         margin-top: 1.8rem;
     }
+
+    &__clears {
+        margin-top: 2.5rem;
+        text-align: center;
+    }
 }
 
 .filter {
@@ -245,6 +250,20 @@ html {
     .noUi-connect {
         background: #ff7777;
     }
+}
+
+.clear-btn {
+    width: 80%;
+    margin-top: 1rem;
+    font-family: sans-serif;
+    color: #fff;
+    background-color: #dc092e;
+    border: 1px solid #dc092e;
+    border-radius: 10px;
+    align-self: center;
+    cursor: pointer;
+    padding: 6px 15px;
+    transition: all .25s;
 }
 
 .sorts {

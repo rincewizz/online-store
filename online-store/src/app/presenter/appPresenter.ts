@@ -29,7 +29,7 @@ class AppPresenter {
     const diagonalFilterEl: HTMLElement | null =
       document.querySelector(".filter--diagonal");
     if (diagonalFilterEl) {
-      diagonalFilterEl.addEventListener("change", (e) => {
+      diagonalFilterEl.addEventListener("input", (e) => {
         this.doDiagonalFilter(e);
       });
     }
@@ -127,6 +127,23 @@ class AppPresenter {
         }
       });
     }
+
+    const clearFiltersBtn: HTMLButtonElement | null = document.querySelector(
+      ".clear-btn--filters"
+    );
+    if (clearFiltersBtn) {
+      clearFiltersBtn.addEventListener("click", () => {
+        this.view.clearFilters();
+      });
+    }
+
+    const clearCartsBtn: HTMLButtonElement | null =
+      document.querySelector(".clear-btn--cart");
+    if (clearCartsBtn) {
+      clearCartsBtn.addEventListener("click", () => {
+        this.clearCart();
+      });
+    }
   }
   doManufacturerFilter(e: Event) {
     const target: HTMLInputElement = e.target as HTMLInputElement;
@@ -193,6 +210,9 @@ class AppPresenter {
     this.model.removeFromCart(product);
     if (product.element) this.view.changeCartBtn(product.element, "remove");
     this.view.updateCart(this.model.getCartCount());
+  }
+  clearCart() {
+    this.model.getProducts(true).forEach((el) => this.removeFromCart(el));
   }
 }
 

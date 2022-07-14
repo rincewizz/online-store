@@ -191,6 +191,37 @@ class AppView {
       }, 3000);
     }
   }
+  clearFilters() {
+    const valueFiltersCheckbox: NodeListOf<HTMLInputElement> =
+      document.querySelectorAll(".filter__checkbox, .filter__input-checkbox");
+    valueFiltersCheckbox.forEach((el) => {
+      if (el.checked == true) {
+        el.click();
+      }
+    });
+
+    const stockRange: noUiSlider.target | null =
+      document.querySelector(".stock-range");
+    if (stockRange && stockRange.noUiSlider) {
+      stockRange.noUiSlider.reset();
+    }
+
+    const yearRange: noUiSlider.target | null =
+      document.querySelector(".year-range");
+    if (yearRange && yearRange.noUiSlider) {
+      yearRange.noUiSlider.reset();
+    }
+
+    const sortEl: HTMLSelectElement | null = document.querySelector(".sort");
+    if (sortEl) {
+      sortEl.selectedIndex = 0;
+      const event: Event = new Event("change", {
+        bubbles: false,
+        cancelable: true,
+      });
+      sortEl.dispatchEvent(event);
+    }
+  }
 }
 
 export default AppView;

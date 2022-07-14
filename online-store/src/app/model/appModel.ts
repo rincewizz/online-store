@@ -44,7 +44,9 @@ class AppModel {
 
     this.cart = [];
   }
-  getProducts(): products {
+  getProducts(all = false): products {
+    if (all) return this.products;
+
     let filteredProducts: products = this.products;
 
     filteredProducts = this.sort(
