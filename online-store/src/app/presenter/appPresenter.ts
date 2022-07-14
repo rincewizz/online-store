@@ -4,6 +4,7 @@ import ValueFilters from "../model/filters/valueFilter";
 import AppView from "../view/appView";
 import * as noUiSlider from "nouislider";
 import RangeFilter from "../model/filters/rangeFilter";
+import { Product, productHTMLElement } from "../types";
 
 class AppPresenter {
   private model: AppModel;
@@ -107,6 +108,25 @@ class AppPresenter {
         this.view.renderProducts(this.model.getProducts());
       });
     }
+
+    const productsEl: HTMLElement | null = this.view.getProductsEl();
+    if (productsEl) {
+      productsEl.addEventListener("click", (e) => {
+        const target: HTMLElement = e.target as HTMLElement;
+        if (target.classList.contains("card__cart-btn")) {
+          const productCardEl: productHTMLElement | null =
+            target.closest(".card");
+
+          if (productCardEl && productCardEl.productObj) {
+            if (target.classList.contains("card__cart-btn--remove")) {
+              this.removeFromCart(productCardEl.productObj);
+            } else {
+              this.addToCart(productCardEl.productObj);
+            }
+          }
+        }
+      });
+    }
   }
   doManufacturerFilter(e: Event) {
     const target: HTMLInputElement = e.target as HTMLInputElement;
@@ -159,6 +179,20 @@ class AppPresenter {
     if (pos == "from") yearFilter.setFrom(val);
     if (pos == "to") yearFilter.setTo(val);
     this.view.renderProducts(this.model.getProducts());
+  }
+  addToCart(product: Product) {
+    if (this.model.getCartCount() < 20) {
+      this.model.addToCart(product);
+      if (product.element) this.view.changeCartBtn(product.element, "add");
+      this.view.updateCart(this.model.getCartCount());
+    } else {
+      this.view.showMessage();
+    }
+  }
+  removeFromCart(product: Product) {
+    this.model.removeFromCart(product);
+    if (product.element) this.view.changeCartBtn(product.element, "remove");
+    this.view.updateCart(this.model.getCartCount());
   }
 }
 

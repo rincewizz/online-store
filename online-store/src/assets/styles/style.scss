@@ -317,7 +317,7 @@ html {
         margin-top: 15px;
     }
 
-    &__add-to-cart {
+    &__cart-btn {
         font-family: sans-serif;
         color: #fff;
         background-color: #dc092e;
@@ -329,5 +329,35 @@ html {
         margin-top: 20px;
         transition: all .25s;
         box-shadow: 0 5px 20px -5px rgb(238, 43, 42);
+
+        &--remove {
+            background-color: #ffffff;
+            color: #dc092e;
+            box-shadow: 0 5px 6px -5px #ee2b2a;
+        }
+    }
+
+}
+
+
+.message {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+
+    color: #084298;
+    background-color: #cfe2fff2;
+    border-color: #b6d4fe;
+    padding: 20px;
+    text-align: center;
+    font-size: 2rem;
+    z-index: 100;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3;
+
+    &--show {
+        visibility: visible;
+        opacity: 1;
     }
 }

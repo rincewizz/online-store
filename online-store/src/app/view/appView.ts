@@ -113,7 +113,7 @@ class AppView {
         const productPopular: HTMLElement | null =
           productClone.querySelector(".card__popular");
         const productAddToCart: HTMLElement | null =
-          productClone.querySelector(".card__add-to-cart");
+          productClone.querySelector(".card__cart-btn");
 
         if (
           !productImage ||
@@ -156,6 +156,39 @@ class AppView {
         tmpNode = product.element;
       }
       product.isShow = true;
+    }
+  }
+  getProductsEl(): HTMLElement | null {
+    return this.productsEl;
+  }
+  changeCartBtn(productCardEl: productHTMLElement, mod: "remove" | "add") {
+    const buttonEl: HTMLButtonElement | null =
+      productCardEl.querySelector(".card__cart-btn");
+    if (buttonEl) {
+      if (mod === "add") {
+        buttonEl.classList.add("card__cart-btn--remove");
+        buttonEl.innerText = "Удалить из корзины";
+      } else {
+        buttonEl.classList.remove("card__cart-btn--remove");
+        buttonEl.innerText = "Добавить в корзину";
+      }
+    }
+  }
+  updateCart(count: number) {
+    const cartCountEl: HTMLElement | null =
+      document.querySelector(".cart__count");
+    if (cartCountEl) {
+      cartCountEl.innerText = String(count);
+      cartCountEl.style.visibility = count > 0 ? "visible" : "hidden";
+    }
+  }
+  showMessage() {
+    const messageEl: HTMLElement | null = document.querySelector(".message");
+    if (messageEl) {
+      messageEl.classList.add("message--show");
+      setTimeout(() => {
+        messageEl.classList.remove("message--show");
+      }, 3000);
     }
   }
 }

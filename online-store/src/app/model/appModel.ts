@@ -19,7 +19,7 @@ class AppModel {
     order: "asc" | "desc";
   };
   public searchQuery: string;
-
+  public cart: products;
   constructor() {
     this.products = [];
 
@@ -41,6 +41,8 @@ class AppModel {
     response.forEach((el, id) => {
       this.products.push(new ProductModel(el, id));
     });
+
+    this.cart = [];
   }
   getProducts(): products {
     let filteredProducts: products = this.products;
@@ -111,6 +113,20 @@ class AppModel {
       });
     }
     return products;
+  }
+  addToCart(product: Product) {
+    if (!this.cart.includes(product) && this.getCartCount() < 20) {
+      this.cart.push(product);
+    }
+  }
+  removeFromCart(product: Product) {
+    const index: number = this.cart.indexOf(product);
+    if (index !== -1) {
+      this.cart.splice(index, 1);
+    }
+  }
+  getCartCount(): number {
+    return this.cart.length;
   }
 }
 
