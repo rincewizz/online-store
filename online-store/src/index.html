@@ -10,7 +10,9 @@
     <header class="header">
         <div class="container header__container">
             <div class="header__logo logo">Online store</div>
-            <div class="header__search"><input class="header__input-search search" type="search" name="" id=""></div>
+            <div class="header__search">
+                <input class="header__input-search search" type="search" name="" id="" placeholder="Поиск товара" autofocus autocomplete="off">
+            </div>
             <div class="header__cart">
                 <div class="header__cart-element cart">
                     <div class="cart__icon">
@@ -30,7 +32,7 @@
             <div class="main__sidebar filters">
                 <h3>Фильтры по значению</h3>
                 <div class="filters__item filter filter--manufacturer">
-                    Производитель:
+                    <div class="filter__title">Производитель:</div>
                     <div class="filter__wrap">
                         <label class="filter__label">
                             <input class="filter__checkbox" type="checkbox" name="manufacturer" value="Amazon" id="amazon">
@@ -48,7 +50,7 @@
                     
                 </div>
                 <div class="filters__item filter filter--diagonal">
-                    Диагональ:
+                    <div class="filter__title">Диагональ:</div>
                     <div class="filter__wrap">
                         <label class="filter__label">
                             <input class="filter__checkbox" type="checkbox" name="diagonal" value="6" id="">
@@ -73,7 +75,7 @@
                     </div>
                 </div>
                 <div class="filters__item filter filter--color">
-                    Цвет:
+                    <div class="filter__title">Цвет:</div>
                     <div class="filter__wrap">
                         <label class="filter__label">
                             <input class="filter__checkbox" type="checkbox" name="color" value="black" id="">
@@ -94,35 +96,39 @@
                     </div>
                 </div>
                 <div class="filters__item filter filter--popular">
-                    <label>Популярные <input class="filter__input-checkbox" type="checkbox"></label>
+                    <label><span class="filter__title">Популярные:</span> <input class="filter__input-checkbox" type="checkbox"></label>
                 </div>
 
                 <h3>Фильтры по диапазону</h3>
                 <div class="filters__item filter filter--stock">
-                    <h4>Количество на складе:</h4>
-                    <input class="filter__input" type="number" name="" id="stock-from">
-                    <input class="filter__input" type="number" name="" id="stock-to">
-                    <div class="filter__range stock-range"></div>
+                    <div class="filter__title">Количество на складе:</div>
+                    <div class="filter__wrap filter__wrap--range">
+                        <input class="filter__input" type="number" name="" id="stock-from">
+                        <input class="filter__input" type="number" name="" id="stock-to">
+                        <div class="filter__range stock-range"></div>
+                    </div>
                 </div>
                 <div class="filters__item filter filter--year">
-                    <h4>Год выхода на рынок:</h4>
-                    <input class="filter__input" type="number" name="" id="year-from">
-                    <input class="filter__input" type="number" name="" id="year-to">
-                    <div class="filter__range year-range"></div>
+                    <div class="filter__title">Год выхода на рынок:</div>
+                    <div class="filter__wrap filter__wrap--range">
+                        <input class="filter__input" type="number" name="" id="year-from">
+                        <input class="filter__input" type="number" name="" id="year-to">
+                        <div class="filter__range year-range"></div>
+                    </div>
                 </div>
             </div>
             <div class="main__content">
                 <div class="sorts">
-                    <label for=""> Сортировать: 
-                        <select class="sort" name="sort" id="">
-                            <option value="name_asc">По названию, по возрастанию</option>
-                            <option value="name_desc">По названию, по убыванию</option>
-                            <option value="year_asc">По году, по возрастанию</option>
-                            <option value="year_desc">По году, по убыванию</option>
-                            <option value="count_asc">По количеству, по возрастанию</option>
-                            <option value="count_desc">По количеству, по убыванию</option>
-                        </select>
-                    </label>
+                    <span class="sorts__title"> Сортировать: </span>
+                    <select class="sort" name="sort" id="">
+                        <option value="name_asc">По названию, по возрастанию</option>
+                        <option value="name_desc">По названию, по убыванию</option>
+                        <option value="year_asc">По году, по возрастанию</option>
+                        <option value="year_desc">По году, по убыванию</option>
+                        <option value="count_asc">По количеству, по возрастанию</option>
+                        <option value="count_desc">По количеству, по убыванию</option>
+                    </select>
+                    
                 </div>
                 <div class="products">
 
