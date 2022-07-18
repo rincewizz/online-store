@@ -97,6 +97,7 @@ html {
     }
     &__container {
         display: flex;
+        align-items: flex-start;
         gap: 20px;
     }
 
@@ -104,7 +105,8 @@ html {
         background: #f6f6f6;
         width: 260px;
         flex: 0 0 260px;
-        padding: 15px;
+        padding: 15px 15px 25px;
+        border-radius: 8px;
     }
 
     &__content {
@@ -193,6 +195,10 @@ html {
         max-width: 100%;
         display: block;
         transition: 0.3s;
+
+        &:hover {
+            border: 1px solid #0097ff;
+        }
     }
     &__btn {
         border: 1px solid #d5d5d5;
@@ -202,6 +208,10 @@ html {
         height: 40px;
         line-height: 40px;
         transition: 0.3s;
+
+        &:hover {
+            border: 1px solid #0097ff;
+        }
 
         &--black {
             background: black;
@@ -238,6 +248,7 @@ html {
         width: 1.8rem;
         height: 1.8rem;
         vertical-align: middle;
+        cursor: pointer;
     }
     &__range {
         flex: 1 0 100%;
@@ -259,6 +270,7 @@ html {
         height: 30px;
         box-shadow: none;
         border: none;
+        cursor: pointer;
 
         &::before, &::after {
             content: none;
@@ -281,11 +293,17 @@ html {
     color: #fff;
     background-color: #dc092e;
     border: 1px solid #dc092e;
+    box-shadow: 0 5px 20px -5px #ee2b2a;
     border-radius: 10px;
     align-self: center;
     cursor: pointer;
     padding: 6px 15px;
     transition: all .25s;
+
+    &:hover {
+        box-shadow: 0 5px 20px -5px #ffffff;
+        background: #e22546;
+    }
 }
 
 .sorts {
@@ -337,6 +355,11 @@ html {
     flex-wrap: nowrap;
     flex-direction: column;
     box-shadow: 0 -2px 4px 0 #35313205, 0 4px 8px 0 #35313210;
+    transition: 0.3s;
+
+    &:hover {
+        box-shadow: 0 -2px 4px 0 #35313212, 0 4px 8px 0 #3531324a;
+    }
 
     &__title {    
         margin: 15px 0 0;
@@ -371,10 +394,19 @@ html {
         transition: all .25s;
         box-shadow: 0 5px 20px -5px rgb(238, 43, 42);
 
+        &:hover {
+            box-shadow: 0 5px 20px -5px #ffffff;
+            background: #e22546;
+        }
+
         &--remove {
-            background-color: #ffffff;
+            background: #ffffff;
             color: #dc092e;
             box-shadow: 0 5px 6px -5px #ee2b2a;
+
+            &:hover {
+                background: inherit;
+            }
         }
     }
 
