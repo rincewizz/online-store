@@ -37,3 +37,23 @@ export type RangeFilterType = {
   from: number;
   to: number;
 };
+
+interface FilterSettings {
+  manufacturer: Array<string>;
+  diagonal: Array<number>;
+  color: Array<string>;
+  popular: boolean;
+  stock: RangeFilterType;
+  year: RangeFilterType;
+}
+
+export interface Search {
+  sortBy: "name" | "year" | "count";
+  order: "asc" | "desc";
+}
+export interface Settings {
+  filters: FilterSettings;
+  sort: Search;
+  search: string;
+  cart: Array<number>;
+}

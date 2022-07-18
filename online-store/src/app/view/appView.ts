@@ -33,7 +33,7 @@ class AppView {
 
       if (stockRange.noUiSlider && stockFrom && stockTo) {
         stockRange.noUiSlider.on("update", function (values, handle) {
-          const value = values[handle];
+          const value: number | string = values[handle];
           if (handle) {
             stockTo.value = String(Math.round(+value));
           } else {
@@ -62,7 +62,7 @@ class AppView {
 
       if (yearRange.noUiSlider && yearFrom && yearTo) {
         yearRange.noUiSlider.on("update", function (values, handle) {
-          const value = values[handle];
+          const value: number | string = values[handle];
           if (handle) {
             yearTo.value = String(Math.round(+value));
           } else {

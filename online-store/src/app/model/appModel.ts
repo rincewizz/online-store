@@ -1,4 +1,12 @@
-import { products, ResponseProduct, Product } from "../types";
+import {
+  products,
+  ResponseProduct,
+  Product,
+  Search,
+  Settings,
+  color,
+  RangeFilterType,
+} from "../types";
 
 import productsJson from "../../products/products.json";
 import ProductModel from "./productModel";
@@ -14,10 +22,7 @@ class AppModel {
       | OneValueFilter
       | RangeFilter;
   };
-  public sortOptions: {
-    sortBy: "name" | "year" | "count";
-    order: "asc" | "desc";
-  };
+  public sortOptions: Search;
   public searchQuery: string;
   public cart: products;
 
@@ -50,7 +55,7 @@ class AppModel {
   loadSettings() {
     const settingsJSON: string | null = localStorage.getItem("settings");
     if (settingsJSON) {
-      const settings = JSON.parse(settingsJSON);
+      const settings: Settings = JSON.parse(settingsJSON);
       (
         this.filtersArr.manufacturer as ValueFilters<Product[keyof Product]>
       ).setValues(settings.filters.manufacturer);
@@ -58,7 +63,7 @@ class AppModel {
         this.filtersArr.diagonal as ValueFilters<Product[keyof Product]>
       ).setValues(settings.filters.diagonal);
       (this.filtersArr.color as ValueFilters<Product[keyof Product]>).setValues(
-        settings.filters.color
+        settings.filters.color as color[]
       );
       (this.filtersArr.popular as OneValueFilter).set(settings.filters.popular);
       (this.filtersArr.stock as RangeFilter).set(settings.filters.stock);
@@ -69,14 +74,14 @@ class AppModel {
     }
   }
   saveSettings() {
-    const settings = {
+    const settings: Settings = {
       filters: {
-        manufacturer: this.filtersArr.manufacturer.get(),
-        diagonal: this.filtersArr.diagonal.get(),
-        color: this.filtersArr.color.get(),
-        popular: this.filtersArr.popular.get(),
-        stock: this.filtersArr.stock.get(),
-        year: this.filtersArr.year.get(),
+        manufacturer: this.filtersArr.manufacturer.get() as string[],
+        diagonal: this.filtersArr.diagonal.get() as number[],
+        color: this.filtersArr.color.get() as string[],
+        popular: this.filtersArr.popular.get() as boolean,
+        stock: this.filtersArr.stock.get() as RangeFilterType,
+        year: this.filtersArr.year.get() as RangeFilterType,
       },
       sort: this.sortOptions,
       search: this.searchQuery,
@@ -139,7 +144,6 @@ class AppModel {
         });
         break;
     }
-    // products.forEach((el) => el.element?.remove());
     return products;
   }
 

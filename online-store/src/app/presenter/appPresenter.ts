@@ -100,7 +100,7 @@ class AppPresenter {
       stockFilterEl.noUiSlider.set([filter.get().from, filter.get().to]);
 
       stockFilterEl.noUiSlider.on("update", (values, handle) => {
-        const value = values[handle];
+        const value: string | number = values[handle];
         if (handle) {
           this.doStockFilter(Math.round(+value), "to");
         } else {
@@ -120,7 +120,7 @@ class AppPresenter {
       yearFilterEl.noUiSlider.set([filter.get().from, filter.get().to]);
 
       yearFilterEl.noUiSlider.on("update", (values, handle) => {
-        const value = values[handle];
+        const value: string | number = values[handle];
         if (handle) {
           this.doYearFilter(Math.round(+value), "to");
         } else {

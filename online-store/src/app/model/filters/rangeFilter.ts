@@ -24,8 +24,8 @@ class RangeFilter {
       const filteredProducts: products = products.filter((el) => {
         if (
           el[this.productProperty] !== null &&
-          this.value.from <= (el[this.productProperty] as number) &&
-          this.value.to >= (el[this.productProperty] as number)
+          this.value.from <= Number(el[this.productProperty]) &&
+          this.value.to >= Number(el[this.productProperty])
         ) {
           return true;
         } else {
