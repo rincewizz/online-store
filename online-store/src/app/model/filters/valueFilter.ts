@@ -16,6 +16,12 @@ class ValueFilters<T extends Product[keyof Product]> {
       this.values = this.values.filter((el) => el != val);
     }
   }
+  setValues(values: Array<T>) {
+    this.values = values;
+  }
+  get(): Array<T> {
+    return this.values;
+  }
   filter(products: products): products {
     if (this.values.length) {
       const filteredProducts: products = products.filter((el) => {

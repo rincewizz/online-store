@@ -10,6 +10,9 @@ class RangeFilter {
   set(val: RangeFilterType) {
     this.value = val;
   }
+  get(): RangeFilterType {
+    return this.value;
+  }
   setFrom(val: number) {
     this.value.from = val;
   }

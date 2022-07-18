@@ -20,6 +20,7 @@ class AppModel {
   };
   public searchQuery: string;
   public cart: products;
+
   constructor() {
     this.products = [];
 
@@ -43,6 +44,45 @@ class AppModel {
     });
 
     this.cart = [];
+
+    this.loadSettings();
+  }
+  loadSettings() {
+    const settingsJSON: string | null = localStorage.getItem("settings");
+    if (settingsJSON) {
+      const settings = JSON.parse(settingsJSON);
+      (
+        this.filtersArr.manufacturer as ValueFilters<Product[keyof Product]>
+      ).setValues(settings.filters.manufacturer);
+      (
+        this.filtersArr.diagonal as ValueFilters<Product[keyof Product]>
+      ).setValues(settings.filters.diagonal);
+      (this.filtersArr.color as ValueFilters<Product[keyof Product]>).setValues(
+        settings.filters.color
+      );
+      (this.filtersArr.popular as OneValueFilter).set(settings.filters.popular);
+      (this.filtersArr.stock as RangeFilter).set(settings.filters.stock);
+      (this.filtersArr.year as RangeFilter).set(settings.filters.year);
+      this.sortOptions = settings.sort;
+      this.searchQuery = settings.search;
+      this.cart = this.products.filter((el) => settings.cart.includes(el.id));
+    }
+  }
+  saveSettings() {
+    const settings = {
+      filters: {
+        manufacturer: this.filtersArr.manufacturer.get(),
+        diagonal: this.filtersArr.diagonal.get(),
+        color: this.filtersArr.color.get(),
+        popular: this.filtersArr.popular.get(),
+        stock: this.filtersArr.stock.get(),
+        year: this.filtersArr.year.get(),
+      },
+      sort: this.sortOptions,
+      search: this.searchQuery,
+      cart: this.cart.map((el) => el.id),
+    };
+    localStorage.setItem("settings", JSON.stringify(settings));
   }
   getProducts(all = false): products {
     if (all) return this.products;
@@ -65,6 +105,8 @@ class AppModel {
     filteredProducts = this.filtersArr["year"].filter(filteredProducts);
 
     filteredProducts = this.search(filteredProducts, this.searchQuery);
+
+    this.saveSettings();
 
     return filteredProducts;
   }
@@ -119,12 +161,14 @@ class AppModel {
   addToCart(product: Product) {
     if (!this.cart.includes(product) && this.getCartCount() < 20) {
       this.cart.push(product);
+      this.saveSettings();
     }
   }
   removeFromCart(product: Product) {
     const index: number = this.cart.indexOf(product);
     if (index !== -1) {
       this.cart.splice(index, 1);
+      this.saveSettings();
     }
   }
   getCartCount(): number {

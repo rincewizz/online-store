@@ -1,4 +1,4 @@
-import { Product, ResponseProduct } from "../types";
+import { Product, productHTMLElement, ResponseProduct } from "../types";
 
 class ProductModel implements Product {
   id: number;
@@ -11,7 +11,7 @@ class ProductModel implements Product {
   diagonal: number;
   popular: boolean;
   isShow: boolean;
-  element: HTMLElement | null;
+  element: productHTMLElement | null;
 
   constructor(product: ResponseProduct, id: number) {
     this.id = id;

@@ -21,6 +21,15 @@ class AppPresenter {
       ".filter--manufacturer"
     );
     if (manufacturerFilterEl) {
+      const checkboxes: NodeListOf<HTMLInputElement> =
+        manufacturerFilterEl.querySelectorAll(".filter__checkbox");
+      const filter: ValueFilters<Product[keyof Product]> = this.model.filtersArr
+        .manufacturer as ValueFilters<Product[keyof Product]>;
+      checkboxes.forEach((el) => {
+        if (filter.get().includes(el.value)) {
+          el.checked = true;
+        }
+      });
       manufacturerFilterEl.addEventListener("change", (e) => {
         this.doManufacturerFilter(e);
       });
@@ -29,6 +38,16 @@ class AppPresenter {
     const diagonalFilterEl: HTMLElement | null =
       document.querySelector(".filter--diagonal");
     if (diagonalFilterEl) {
+      const checkboxes: NodeListOf<HTMLInputElement> =
+        diagonalFilterEl.querySelectorAll(".filter__checkbox");
+      const filter: ValueFilters<Product[keyof Product]> = this.model.filtersArr
+        .diagonal as ValueFilters<Product[keyof Product]>;
+      checkboxes.forEach((el) => {
+        if (filter.get().includes(+el.value)) {
+          el.checked = true;
+        }
+      });
+
       diagonalFilterEl.addEventListener("input", (e) => {
         this.doDiagonalFilter(e);
       });
@@ -37,6 +56,15 @@ class AppPresenter {
     const colorFilterEl: HTMLElement | null =
       document.querySelector(".filter--color");
     if (colorFilterEl) {
+      const checkboxes: NodeListOf<HTMLInputElement> =
+        colorFilterEl.querySelectorAll(".filter__checkbox");
+      const filter: ValueFilters<Product[keyof Product]> = this.model.filtersArr
+        .color as ValueFilters<Product[keyof Product]>;
+      checkboxes.forEach((el) => {
+        if (filter.get().includes(el.value)) {
+          el.checked = true;
+        }
+      });
       colorFilterEl.addEventListener("change", (e) => {
         this.doColorFilter(e);
       });
@@ -44,7 +72,17 @@ class AppPresenter {
 
     const popularFilterEl: HTMLElement | null =
       document.querySelector(".filter--popular");
+
     if (popularFilterEl) {
+      const checkbox: HTMLInputElement | null = popularFilterEl.querySelector(
+        ".filter__input-checkbox"
+      );
+      const filter: OneValueFilter = this.model.filtersArr
+        .popular as OneValueFilter;
+      if (filter.get() && checkbox) {
+        checkbox.checked = true;
+      }
+
       popularFilterEl.addEventListener("change", (e) => {
         this.doPopularFilter(e);
       });
@@ -58,6 +96,9 @@ class AppPresenter {
       document.querySelector("#stock-to");
 
     if (stockFilterEl && stockFilterEl.noUiSlider && stockFrom && stockTo) {
+      const filter: RangeFilter = this.model.filtersArr.stock as RangeFilter;
+      stockFilterEl.noUiSlider.set([filter.get().from, filter.get().to]);
+
       stockFilterEl.noUiSlider.on("update", (values, handle) => {
         const value = values[handle];
         if (handle) {
@@ -75,6 +116,9 @@ class AppPresenter {
     const yearTo: HTMLInputElement | null = document.querySelector("#year-to");
 
     if (yearFilterEl && yearFilterEl.noUiSlider && yearFrom && yearTo) {
+      const filter: RangeFilter = this.model.filtersArr.year as RangeFilter;
+      yearFilterEl.noUiSlider.set([filter.get().from, filter.get().to]);
+
       yearFilterEl.noUiSlider.on("update", (values, handle) => {
         const value = values[handle];
         if (handle) {
@@ -87,6 +131,7 @@ class AppPresenter {
 
     const sortEl: HTMLSelectElement | null = document.querySelector(".sort");
     if (sortEl) {
+      sortEl.value = `${this.model.sortOptions.sortBy}_${this.model.sortOptions.order}`;
       sortEl.addEventListener("change", (e) => {
         const target: HTMLSelectElement = e.target as HTMLSelectElement;
         this.model.sortOptions.sortBy = target.value.split("_")[0] as
@@ -96,13 +141,13 @@ class AppPresenter {
         this.model.sortOptions.order = target.value.split("_")[1] as
           | "asc"
           | "desc";
-
         this.view.renderProducts(this.model.getProducts());
       });
     }
 
     const searchEl: HTMLInputElement | null = document.querySelector(".search");
     if (searchEl) {
+      searchEl.value = this.model.searchQuery;
       searchEl.addEventListener("input", () => {
         this.model.searchQuery = searchEl.value;
         this.view.renderProducts(this.model.getProducts());
@@ -144,6 +189,11 @@ class AppPresenter {
         this.clearCart();
       });
     }
+
+    this.model.cart.forEach((el) => {
+      if (el.element) this.view.changeCartBtn(el.element, "add");
+    });
+    this.view.updateCart(this.model.getCartCount());
   }
   doManufacturerFilter(e: Event) {
     const target: HTMLInputElement = e.target as HTMLInputElement;
@@ -172,7 +222,6 @@ class AppPresenter {
       const colorFilter: ValueFilters<string> = this.model.filtersArr
         .color as ValueFilters<string>;
       colorFilter.set(target.value, target.checked);
-
       this.view.renderProducts(this.model.getProducts());
     }
   }
@@ -195,6 +244,7 @@ class AppPresenter {
     const yearFilter: RangeFilter = this.model.filtersArr.year as RangeFilter;
     if (pos == "from") yearFilter.setFrom(val);
     if (pos == "to") yearFilter.setTo(val);
+
     this.view.renderProducts(this.model.getProducts());
   }
   addToCart(product: Product) {

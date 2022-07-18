@@ -10,6 +10,9 @@ class OneValueFilter {
   set(val: boolean) {
     this.value = val;
   }
+  get(): boolean {
+    return this.value;
+  }
   filter(products: products): products {
     if (this.value) {
       const filteredProducts: products = products.filter((el) => {

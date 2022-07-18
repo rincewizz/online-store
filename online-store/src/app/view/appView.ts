@@ -221,6 +221,16 @@ class AppView {
       });
       sortEl.dispatchEvent(event);
     }
+
+    const searchEl: HTMLInputElement | null = document.querySelector(".search");
+    if (searchEl) {
+      searchEl.value = "";
+      const event: Event = new Event("input", {
+        bubbles: false,
+        cancelable: true,
+      });
+      searchEl.dispatchEvent(event);
+    }
   }
 }
 
