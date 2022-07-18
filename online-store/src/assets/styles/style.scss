@@ -42,7 +42,29 @@ html {
 }
 
 .footer {
+    background:#434343;
+    color: #cfcfcf;
+    padding: 30px 0;
+    margin-top: 40px;
 
+    &__container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    &__logo, &__github {
+        flex: 1 0 40%;
+    }
+    &__github {
+        text-align: right;
+    }
+    &__year {
+        flex: 1 0 auto;
+        text-align: center;
+    }
+    &__logo-img, &__github-img {
+        height: 50px;
+    }
 }
 
 .logo {
