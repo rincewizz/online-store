@@ -212,16 +212,6 @@ class AppView {
       yearRange.noUiSlider.reset();
     }
 
-    const sortEl: HTMLSelectElement | null = document.querySelector(".sort");
-    if (sortEl) {
-      sortEl.selectedIndex = 0;
-      const event: Event = new Event("change", {
-        bubbles: false,
-        cancelable: true,
-      });
-      sortEl.dispatchEvent(event);
-    }
-
     const searchEl: HTMLInputElement | null = document.querySelector(".search");
     if (searchEl) {
       searchEl.value = "";
