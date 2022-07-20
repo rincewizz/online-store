@@ -268,3 +268,4 @@ class AppPresenter {
 }
 
 export default AppPresenter;
+module.exports = AppPresenter;
