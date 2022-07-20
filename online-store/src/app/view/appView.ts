@@ -225,3 +225,4 @@ class AppView {
 }
 
 export default AppView;
+module.exports = AppView;
