@@ -14,7 +14,8 @@ class AppPresenter {
     this.model = model;
     this.view = view;
   }
-  init() {
+  async init() {
+    await this.model.loadProducts();
     this.view.renderProducts(this.model.getProducts());
 
     const manufacturerFilterEl: HTMLElement | null = document.querySelector(

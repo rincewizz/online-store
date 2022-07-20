@@ -40,16 +40,16 @@ class AppModel {
     this.sortOptions = { sortBy: "name", order: "asc" };
     this.searchQuery = "";
 
-    const response: Array<ResponseProduct> = JSON.parse(
-      productsJson as unknown as string
-    );
+    this.cart = [];
+  }
+  async loadProducts() {
+    const response: Array<ResponseProduct> = await (
+      await fetch(productsJson as unknown as URL)
+    ).json();
 
     response.forEach((el, id) => {
       this.products.push(new ProductModel(el, id));
     });
-
-    this.cart = [];
-
     this.loadSettings();
   }
   loadSettings() {
