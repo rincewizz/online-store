@@ -181,3 +181,4 @@ class AppModel {
 }
 
 export default AppModel;
+module.exports = AppModel;
