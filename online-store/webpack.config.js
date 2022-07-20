@@ -52,7 +52,7 @@ const baseConfig = module.exports = {
           },
           {
             test: /\.json/,
-            type: 'asset/source',
+            type: 'asset/resource',
             generator: {
               filename: 'products/[name][ext]',
             },
