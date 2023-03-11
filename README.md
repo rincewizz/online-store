@@ -6,8 +6,7 @@
 2. App screenshot:   
 ![image](https://user-images.githubusercontent.com/95530503/179486591-6568a7ff-ea45-4ff2-9e2e-eb0714f819d9.png)
 
-3. Deploy:  
-   https://rolling-scopes-school.github.io/rincewizz-JSFE2022Q1/online-store/
+3. Deploy: https://rincewizz.github.io/online-store/
 4. Done 18.07.22 (deadline 18.07.22)
 5. Score: 170 / 200
 - [x] Репозиторий +20
